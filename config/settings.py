@@ -1,6 +1,9 @@
 from pathlib import Path
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
+load_dotenv()  # Load environment variables from .env file
 
 #____PATHS____
 PROJECT_ROOT = Path(__file__).resolve().parent.parent 
@@ -48,3 +51,15 @@ SLIPPAGE_RATE = 0.0005
 MAX_POSITION_WEIGHT = 0.20
 ALLOW_FRACTIONAL_SHARES = False
 RISK_FREE_RATE = 0.02
+
+ALPACA_KEY = os.getenv("ALPACA_KEY")
+ALPACA_SECRET = os.getenv("ALPACA_SECRET")
+ALPACA_BASE_URL = os.getenv("ALPACA_BASE_URL")
+
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+
+if not ALPACA_KEY or not ALPACA_SECRET:
+    raise ValueError("Alpaca API key and secret must be set in the .env file.")
+
+if not ANTHROPIC_API_KEY:
+    raise ValueError("Anthropic API key must be set in the .env file.")

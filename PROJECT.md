@@ -9,7 +9,7 @@ capital can be allocated
 ## Status
 | Phase | Description | Status |
 |---|---|---|
-| Phase 1 | Core backtesting engine | In progress |
+| Phase 1 | Core backtesting engine | In progress | engine/data.py file completed |
 | Phase 2 | ML signal generation (Layer 1) | Not started |
 | Phase 3 | LLM research agent (Layer 2) | Not started |
 | Phase 4 | AI strategy generator (Layer 3) | Not started |
@@ -60,3 +60,21 @@ QTS/
 4. Every strategy needs 100+ backtest trades — smaller samples are statistically meaningless
 5. Max drawdown above 20% = automatic rejection
 6. Lookahead bias is the most dangerous mistake — all signals delayed by one bar
+
+## Session Notes
+
+### Session 1
+- Decided on local repo pushed to GitHub as development approach
+- Chose yfinance (historical/backtesting) + Alpaca (paper/live trading) as data sources
+- Walked through full project architecture and folder structure
+- Set up complete project scaffold with all folders and placeholder files
+- Added logs/, outputs/, data/processed/ beyond original spec
+- Pushed initial scaffold to GitHub
+- Established working rule: Claude as thinking partner not code generator
+
+### Session 2
+- Pulled repo onto MacBook, set up clean venv (avoid Anaconda base environment)
+- Completed: requirements.txt, .env, config/settings.py, engine/data.py
+- data.py verified working — 20,420 rows, 5 tickers, 2010–present
+- Universe: AAPL, JPM, XOM, JNJ, WMT — Benchmark: SPY
+- Next session: tests/test_data.py then engine/signal.py
